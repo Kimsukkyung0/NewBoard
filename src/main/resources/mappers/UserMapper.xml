@@ -10,7 +10,12 @@
         , upw = #{upw}
         , nm = #{nm}
         , gender = #{gender}
-        , main_pic = #{mainPic}
         , addr = #{addr}
     </insert>
+
+    <update id="upUserPhoto" parameterType="UserPhotoUpDto">
+        UPDATE t_user
+        SET main_pic = #{mainPic}
+        where uid = #{uid}
+    </update>
 </mapper>

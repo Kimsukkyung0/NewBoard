@@ -8,6 +8,5 @@ public class UserInsDto {
     private String upw;
     private String nm;
     private char gender;
-    private String mainPic;
     private String addr;
 }
