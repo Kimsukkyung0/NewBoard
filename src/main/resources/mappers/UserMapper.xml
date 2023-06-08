@@ -15,7 +15,20 @@
 
     <update id="upUserPhoto" parameterType="UserPhotoUpDto">
         UPDATE t_user
-        SET main_pic = #{mainPic}
+        SET main_pic = #{mainPic},
+        updated_at = current_timestamp()
         where uid = #{uid}
     </update>
+
+    <select id="loginUser" resultType="UserLoginVo">
+        SELECT iuser,uid,upw,nm,gender,addr
+        FROM t_user
+        WHERE uid=#{uid}
+    </select>
+
+    <delete id="deleteUser" parameterType="UserLoginVo">
+        DELETE FROM t_user
+        WHERE uid = #{uid}
+        and upw = #{upw}
+    </delete>
 </mapper>
