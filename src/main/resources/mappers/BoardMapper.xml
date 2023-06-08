@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board6.board.BoardMapper">
+    <insert id="insBoard" useGeneratedKeys="true" keyProperty="iboard">
+        INSERT INTO t_board
+        SET title=#{title}
+        , ctnt = #{ctnt}
+    </insert>
+
+    <update id="upBoard">
+        UPDATE t_board
+        SET title=#{title}
+        , ctnt = #{ctnt}
+        , updated_at = current_timestamp()
+        WHERE iboard=#{iboard}
+    </update>
+
+    <select id="selBoardDetailById" resultType="BoardDetailVo">
+        SELECT A.iboard,A.title,A. ctnt, A.iuser writer,
+        A.created_at createdAt, B.uid, B.main_pic mainPic
+        from t_board A
+        INNER JOIN t_user B
+        On A.iuser = B.iuser
+        where iboard= #{iboard};
+    </select>
+
+    <select id="selBoardList">
+       SELECT iboard, title, iuser,created_at createdAt
+        from t_board
+        limit #{startIdx},#{row}
+    </select>
+
+    <select id="getBoardCount" parameterType="int">
+        select count(iboard)
+        from t_board
+    </select>
+
+</mapper>

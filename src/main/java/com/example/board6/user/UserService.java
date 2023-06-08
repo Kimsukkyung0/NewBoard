@@ -107,7 +107,7 @@ public class UserService {
         CommonUtils commonUtils = new CommonUtils();
         String tmpPw = commonUtils.encodeSha256(dto.getUpw());
         UserLoginVo vo = mapper.loginUser(dto);
-        //
+
         if(vo==null){
             return 2;//2:회원삭제실패. id가 다름
         };

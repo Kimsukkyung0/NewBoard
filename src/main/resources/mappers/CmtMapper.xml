@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board6.cmt.CmtMapper">
+    <insert id="insCmt" parameterType="CmtSelDto">
+        INSERT INTO t_board_cmt
+        set ctnt=#{ctnt}
+    </insert>
+</mapper>

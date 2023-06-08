@@ -23,7 +23,6 @@ public class UserController {
     @PostMapping
     @Operation(summary = "회원가입", description = "" + "uid:[12] 회원아이디<br>" + "upw:[100] 회원비밀번호<br>" + "name:[30] 회원 이름" +
             "gender : [1]성별 (M:남성, F:여성),<br>" + "addr:[100] 주소,<br>")
-
     public int signInUsers(@RequestBody UserInsDto dto) {
         return service.signInUsers(dto);
     }
