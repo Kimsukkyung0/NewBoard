@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class BoardVo {
-    private int iboard;
+    private Integer iboard;
     private String title;
     private String iuser;
     private String createdAt;

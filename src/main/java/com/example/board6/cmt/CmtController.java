@@ -28,8 +28,8 @@ public class CmtController {
     }
     @GetMapping("/{iboard}")
     public CmtRes CmtSelList(@PathVariable int iboard,
-                             @RequestParam(defaultValue = "5") @Min('1') int row,
-                             @RequestParam (defaultValue = "1")@Min('1') int page){
+                             @RequestParam(defaultValue = "5") @Min('1') Integer row,
+                             @RequestParam (defaultValue = "1")@Min('1') Integer page){
         CmtSelListDto dto = new CmtSelListDto();
         dto.setIboard(iboard);
         dto.setRow(row);

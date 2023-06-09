@@ -18,19 +18,19 @@ public class BoardController {
     }
 
     @PostMapping
-    public int postBoard(@RequestBody BoardInsDto dto){
+    public Integer postBoard(@RequestBody BoardInsDto dto){
         return service.insBoard(dto);
     }
 
     @PutMapping
-    public int putBoard(@RequestBody BoardUpDto dto,@RequestParam int iboard){
+    public Integer putBoard(@RequestBody BoardUpDto dto,@RequestParam Integer iboard){
         dto.setIboard(iboard);
         return service.upBoard(dto);
     }
 
     @Tag(name="보드+댓글 디테일")
     @GetMapping("/{iboard}")
-    public BoardCmtVo selBoardDetailById(@PathVariable int iboard){
+    public BoardCmtVo selBoardDetailById(@PathVariable Integer iboard){
         BoardDetailDto dto = new BoardDetailDto();
         dto.setIboard(iboard);
         return service.selBoardDetailById(dto);

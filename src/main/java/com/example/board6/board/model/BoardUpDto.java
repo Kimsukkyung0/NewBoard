@@ -6,5 +6,5 @@ import lombok.Data;
 public class BoardUpDto {
     private String title;
     private String ctnt;
-    private int iboard;
+    private Integer iboard;
 }

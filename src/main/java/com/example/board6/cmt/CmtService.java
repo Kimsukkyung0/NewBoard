@@ -18,7 +18,7 @@ public class CmtService {
         this.mapper = mapper;
     }
 
-    public int insCmt(CmtSelDto dto){
+    public Integer insCmt(CmtSelDto dto){
         return mapper.insCmt(dto);
     }
 
@@ -28,9 +28,9 @@ public class CmtService {
 
         List<CmtSelListVo> list = mapper.selCmtList(dto);
 
-        int totalPage = (int)Math.ceil(mapper.getTotalCmt(dto.getIboard())/(double)dto.getRow());
+        Integer totalPage = (int)Math.ceil(mapper.getTotalCmt(dto.getIboard())/(double)dto.getRow());
         //iboard에 따른 보여줄 코멘트 페이지 수 구하기
-        int isMore = totalPage > dto.getPage()? 1 : 0;
+        Integer isMore = totalPage > dto.getPage()? 1 : 0;
 
         return CmtRes.builder()
                      .list(list)

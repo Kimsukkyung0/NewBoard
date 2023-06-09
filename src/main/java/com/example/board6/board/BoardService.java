@@ -39,7 +39,7 @@ public class BoardService {
 
     public BoardCmtVo selBoardDetailById(BoardDetailDto dto){
         CmtSelListDto sDto = new CmtSelListDto();
-           sDto.setIboard(dto.getIboard());
+        sDto.setIboard(dto.getIboard());
 
         return BoardCmtVo.builder()
                 .vo(mapper.selBoardDetailById(dto))

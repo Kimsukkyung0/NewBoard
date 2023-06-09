@@ -9,5 +9,5 @@ import java.util.List;
 @Builder
 public class CmtRes {
     private List<CmtSelListVo> list;
-    private int isMore;
+    private Integer isMore;
 }

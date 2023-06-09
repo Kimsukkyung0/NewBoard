@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class BoardSelDto {
-    private int startIdx;
-    private int row;
-    private int page;
+    private Integer startIdx;
+    private Integer row;
+    private Integer page;
 }
