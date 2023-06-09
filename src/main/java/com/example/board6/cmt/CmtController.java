@@ -3,12 +3,9 @@ package com.example.board6.cmt;
 import com.example.board6.cmt.model.CmtRes;
 import com.example.board6.cmt.model.CmtSelDto;
 import com.example.board6.cmt.model.CmtSelListDto;
-import com.example.board6.cmt.model.CmtSelListVo;
 import jakarta.validation.constraints.Min;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/cmt")

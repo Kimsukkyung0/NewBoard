@@ -2,7 +2,6 @@ package com.example.board6.board;
 
 import com.example.board6.board.model.*;
 import com.example.board6.cmt.CmtService;
-import com.example.board6.cmt.model.CmtRes;
 import com.example.board6.cmt.model.CmtSelListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -45,7 +44,7 @@ public class BoardService {
                 .vo(mapper.selBoardDetailById(dto))
                 .cmtlist(cmtService.selCmtList(sDto))
                 .build();
-    };
+    }
 
     public List<BoardVo> selBoardList(BoardSelDto dto){
         dto.setStartIdx((int)Math.ceil((double)mapper.getBoardCount()/dto.getRow()));

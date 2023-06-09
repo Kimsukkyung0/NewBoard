@@ -28,13 +28,13 @@ public class CmtService {
 
         List<CmtSelListVo> list = mapper.selCmtList(dto);
 
-        Integer totalPage = (int)Math.ceil(mapper.getTotalCmt(dto.getIboard())/(double)dto.getRow());
+        int totalPage = (int)Math.ceil(mapper.getTotalCmt(dto.getIboard())/(double)dto.getRow());
         //iboard에 따른 보여줄 코멘트 페이지 수 구하기
-        Integer isMore = totalPage > dto.getPage()? 1 : 0;
+        int isMore = totalPage > dto.getPage()? 1 : 0;
 
         return CmtRes.builder()
                      .list(list)
                      .isMore(isMore)
                      .build();
-    };
+    }
 }

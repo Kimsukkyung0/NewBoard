@@ -3,7 +3,6 @@ package com.example.board6.user;
 import com.example.board6.user.model.UserInsDto;
 import com.example.board6.user.model.UserLoginDto;
 import com.example.board6.user.model.UserPhotoUpDto;
-import com.example.board6.user.model.UserLoginVo;
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -21,7 +20,7 @@ public class UserController {
     }
 
     @PostMapping
-    @Operation(summary = "회원가입", description = "" + "uid:[12] 회원아이디<br>" + "upw:[100] 회원비밀번호<br>" + "name:[30] 회원 이름" +
+    @Operation(summary = "회원가입", description = "uid:[12] 회원아이디<br>" + "upw:[100] 회원비밀번호<br>" + "name:[30] 회원 이름" +
             "gender : [1]성별 (M:남성, F:여성),<br>" + "addr:[100] 주소,<br>")
     public int signInUsers(@RequestBody UserInsDto dto) {
         return service.signInUsers(dto);
@@ -35,8 +34,8 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    @Operation(summary = "로그인", description = ""
-            + "(1):로그인 성공,"
+    @Operation(summary = "로그인", description =
+              "(1):로그인 성공,"
             + "(2):아이디 없음,"
             + "(3):비밀번호다름")
     public int LoginUser(@RequestBody UserLoginDto dto) {
@@ -44,8 +43,8 @@ public class UserController {
     }
 
     @DeleteMapping
-    @Operation(summary = "회원삭제", description = ""
-            + "(1):탈퇴성공,"
+    @Operation(summary = "회원삭제", description =
+            "(1):탈퇴성공,"
             + "(2):회원정보를 찾을 수 없음,"
             + "(3):비밀번호다름")
     public int signOutUser(@RequestBody UserLoginDto dto) {

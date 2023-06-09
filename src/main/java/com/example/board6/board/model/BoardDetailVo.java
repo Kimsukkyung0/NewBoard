@@ -1,7 +1,6 @@
 package com.example.board6.board.model;
 
 
-import com.example.board6.cmt.model.CmtRes;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
