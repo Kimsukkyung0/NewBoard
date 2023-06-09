@@ -1,6 +1,7 @@
 package com.example.board6.board;
 
 import com.example.board6.board.model.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,8 +28,9 @@ public class BoardController {
         return service.upBoard(dto);
     }
 
+    @Tag(name="보드+댓글 디테일")
     @GetMapping("/{iboard}")
-    public BoardDetailVo selBoardDetailById(@PathVariable int iboard){
+    public BoardCmtVo selBoardDetailById(@PathVariable int iboard){
         BoardDetailDto dto = new BoardDetailDto();
         dto.setIboard(iboard);
         return service.selBoardDetailById(dto);

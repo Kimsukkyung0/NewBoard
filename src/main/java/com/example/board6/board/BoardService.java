@@ -1,6 +1,9 @@
 package com.example.board6.board;
 
 import com.example.board6.board.model.*;
+import com.example.board6.cmt.CmtService;
+import com.example.board6.cmt.model.CmtRes;
+import com.example.board6.cmt.model.CmtSelListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,10 +12,12 @@ import java.util.List;
 @Service
 public class BoardService {
     private final BoardMapper mapper;
+    private final CmtService cmtService;
 
     @Autowired
-    public BoardService(BoardMapper mapper){
+    public BoardService(BoardMapper mapper,CmtService cmtService){
         this.mapper = mapper;
+        this.cmtService = cmtService;
     }
 
     public int insBoard(BoardInsDto dto){
@@ -32,8 +37,14 @@ public class BoardService {
         return tmp;
     }
 
-    public BoardDetailVo selBoardDetailById(BoardDetailDto dto){
-        return mapper.selBoardDetailById(dto);
+    public BoardCmtVo selBoardDetailById(BoardDetailDto dto){
+        CmtSelListDto sDto = new CmtSelListDto();
+           sDto.setIboard(dto.getIboard());
+
+        return BoardCmtVo.builder()
+                .vo(mapper.selBoardDetailById(dto))
+                .cmtlist(cmtService.selCmtList(sDto))
+                .build();
     };
 
     public List<BoardVo> selBoardList(BoardSelDto dto){

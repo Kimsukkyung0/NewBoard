@@ -4,8 +4,25 @@
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.example.board6.cmt.CmtMapper">
-    <insert id="insCmt" parameterType="CmtSelDto">
-        INSERT INTO t_board_cmt
-        set ctnt=#{ctnt}
-    </insert>
+    <update id="insCmt">
+        update t_board_cmt
+        set ctnt=#{ctnt},
+        updated_at = current_timestamp
+        WHERE iboard=#{iboard} and iuser=#{iuser}
+    </update>
+
+    <select id="selCmtList">
+        SELECT A.iboard , A.ctnt, A.updated_at updatedAt, B.uid, B.nm, B.main_pic mainPic
+        from t_board_cmt A
+        INNER JOIN t_user B
+        ON A.iuser = B.iuser
+        WHERE iboard=#{iboard}
+        LIMIT #{startIdx},#{row}
+    </select>
+
+    <select id="getTotalCmt" resultType="int">
+        SELECT count(iboard)
+        from t_board_cmt
+        WHERE iboard=#{iboard}
+    </select>
 </mapper>
