@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CmtSelListVo {
-    private Integer iboard;
+    private int iboard;
     private String ctnt;
     private String updatedAt;
     private String uid;

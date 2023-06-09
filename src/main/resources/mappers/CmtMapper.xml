@@ -16,7 +16,7 @@
         from t_board_cmt A
         INNER JOIN t_user B
         ON A.iuser = B.iuser
-        WHERE iboard=#{iboard}
+        WHERE A.iboard=#{iboard}
         LIMIT #{startIdx},#{row}
     </select>
 

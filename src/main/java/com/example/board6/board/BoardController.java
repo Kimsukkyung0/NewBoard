@@ -18,20 +18,20 @@ public class BoardController {
     }
 
     @PostMapping
-    public Integer postBoard(@RequestBody BoardInsDto dto){
+    public int postBoard(@RequestBody BoardInsDto dto){
         return service.insBoard(dto);
     }
 
     @PutMapping
-    public Integer putBoard(@RequestBody BoardUpDto dto,@RequestParam Integer iboard){
+    public int putBoard(@RequestBody BoardUpDto dto,@RequestParam int iboard){
         dto.setIboard(iboard);
         return service.upBoard(dto);
     }
 
-    @Tag(name="보드+댓글 디테일")
+    @Tag(name="게시글과 댓글 함께보기")
     @GetMapping("/{iboard}")
-    public BoardCmtVo selBoardDetailById(@PathVariable Integer iboard){
-        BoardDetailDto dto = new BoardDetailDto();
+    public BoardCmtVo selBoardDetailById(@PathVariable int iboard){
+        BoardDetailDto dto = new BoardDetailDto();//이새끼가 약간수상
         dto.setIboard(iboard);
         return service.selBoardDetailById(dto);
     }

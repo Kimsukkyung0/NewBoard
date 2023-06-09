@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class CmtSelListDto {
-    private Integer iboard;
-    private Integer startIdx;
+    private int iboard;
+    private int startIdx;
     private int row;
     private int page;
 }
