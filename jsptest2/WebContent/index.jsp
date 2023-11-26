@@ -7,6 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-hello, world
+hello, world</br>
+<form action="/hi" method="post">
+	<h1>What is your name?</h1><br/>
+	<input type="text" name="your_name"/><br/>
+	<input type="submit" value="Submit">
+</form>
 </body>
 </html>
