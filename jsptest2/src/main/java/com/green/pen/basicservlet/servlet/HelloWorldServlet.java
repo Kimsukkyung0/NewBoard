@@ -28,5 +28,22 @@ public class HelloWorldServlet extends HttpServlet {
 		out.println("<html>");
 		out.println("hello, world");
 		out.println("</html>");
+	
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter();
+		//response로 부터 출력장치를 확보
+		
+		String yourName = request.getParameter("your_name");
+		
+		out.println("method : "+request.getMethod());
+		out.println("CharacterEncoding Configuration : "+ request.getCharacterEncoding());
+		out.print("<h1>My name Is : "+ yourName + "</h1>" );
+		out.println("response Method : "+ response.getHeader(yourName));
+		
+
 	}
 }

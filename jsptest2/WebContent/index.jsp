@@ -8,7 +8,7 @@
 </head>
 <body>
 hello, world</br>
-<form action="/hi" method="post">
+<form action="/hi" method="get">
 	<h1>What is your name?</h1><br/>
 	<input type="text" name="your_name"/><br/>
 	<input type="submit" value="Submit">
