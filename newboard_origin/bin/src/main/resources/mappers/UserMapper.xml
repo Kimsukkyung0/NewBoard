@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.board6.user.UserMapper">
+    <insert id="signInUsers" parameterType="UserInsDto">
+        INSERT INTO t_user
+        SET uid = #{uid}
+        , upw = #{upw}
+        , nm = #{nm}
+        , gender = #{gender}
+        , addr = #{addr}
+    </insert>
+
+    <update id="upUserPhoto" parameterType="UserPhotoUpDto">
+        UPDATE t_user
+        SET main_pic = #{mainPic},
+        updated_at = current_timestamp()
+        where uid = #{uid}
+    </update>
+
+    <select id="loginUser" resultType="UserLoginVo">
+        SELECT iuser,uid,upw,nm,gender,addr
+        FROM t_user
+        WHERE uid=#{uid}
+    </select>
+
+    <delete id="deleteUser" parameterType="UserLoginVo">
+        DELETE FROM t_user
+        WHERE uid = #{uid}
+        and upw = #{upw}
+    </delete>
+</mapper>
